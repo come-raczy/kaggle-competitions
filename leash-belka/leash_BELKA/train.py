@@ -1,6 +1,7 @@
 import argparse
 
 from leash_BELKA.TrainingData import TrainingData
+from leash_BELKA.TrainedModel import TrainedModel
 
 def train() -> None:
     parser = argparse.ArgumentParser(description='Commandline tool for training for Leash BELKA kaggle competition.')
@@ -10,7 +11,7 @@ def train() -> None:
     args = parser.parse_args()
     targets = args.targets.split(',') if args.targets else []
     trainingData = TrainingData(targets)
-    with open(args.input) as dataFile, open(args.output, 'w') as trainedModel:
+    with open(args.input) as dataFile:
         line = dataFile.readline()
         if not line:
             raise ValueError('Invalid training data file: ' + args.input + '. Expected a header line. Got nothing.')
@@ -36,3 +37,6 @@ def train() -> None:
             count += 1
             if count > 100:
                 break
+        trainedModel = TrainedModel(trainingData)
+        trainedModel.save(args.output)
+

@@ -1,4 +1,4 @@
-def predict():
+def predict() -> None:
     print("Predicting...")
 
 

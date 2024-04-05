@@ -56,23 +56,30 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 packages = [
-  {include = "leash_BELKA"}
+  {include = "leash_BELKA"},
+  {include = "experimental"}
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.12,<4.0"
+python = "^3.12.0"
 poetry-dynamic-versioning = {extras = ["plugin"], version = "^1.2.0"}
 rdkit = {version = ">=2023.9.5", markers = "python_version >= '3.8'"}
-xgboost = ">=2.0.3"
+xgboost = "^2.0.3"
+numpy = "^1.26.4"
+pandas = "^2.2.1"
+pandas-stubs = "^2.2.1"
 
 [tool.poetry.group.dev.dependencies]
 # Add a private package
 #omtx-package ={version="^0.2.1", source="omtx"}
-pytest = "^7.2.0"
-pytest-cov = "^4.0.0"
 deptry = "^0.12.0"
 mypy = "^1.5.1"
 pre-commit = "^3.4.0"
+ruff = "^0.3.5"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
 tox = "^4.11.1"
 
 # Add a private pypi repository
@@ -85,6 +92,7 @@ tox = "^4.11.1"
 [tool.poetry.scripts]
 train = "leash_BELKA.train:train"
 predict = "leash_BELKA.predict:predict"
+df_append = "experimental.df_append:df_append"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"

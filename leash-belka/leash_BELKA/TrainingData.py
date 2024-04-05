@@ -1,8 +1,11 @@
+from typing import Dict
+
+
 class TrainingData:
-    def __init__(self, targets: [str]) -> None:
+    def __init__(self, targets: list[str]) -> None:
         self.targets = targets
-        self.x = {}
-        self.y = {}
+        self.x : Dict[str, list[list[float]]] = {}
+        self.y : Dict[str, list[int]] = {}
         for target in targets:
             self.x[target] = []
             self.y[target] = []

@@ -1,7 +1,8 @@
 import argparse
 
-from leash_BELKA.TrainingData import TrainingData
 from leash_BELKA.TrainedModel import TrainedModel
+from leash_BELKA.TrainingData import TrainingData
+
 
 def train() -> None:
     parser = argparse.ArgumentParser(description='Commandline tool for training for Leash BELKA kaggle competition.')
@@ -27,7 +28,7 @@ def train() -> None:
             protein_name = data[5]
             if trainingData.targets and protein_name not in trainingData.targets:
                 continue
-            data_id = data[0]
+            #data_id = data[0]
             buildingblock1_smiles = data[1]
             buildingblock2_smiles = data[2]
             buildingblock3_smiles = data[3]

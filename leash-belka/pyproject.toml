@@ -127,6 +127,7 @@ branch = true
 source = ["leash_BELKA"]
 
 [tool.ruff]
+exclude = ["scripts/"]
 target-version = "py37"
 line-length = 120
 fix = true

@@ -20,12 +20,12 @@ def consolidate(filename):
                     raise Exception("Different smiles at line ", cvs_reader.line_num, " in ", filename)
                 target = row[-2]
                 if target != targets[i]:
-                    raise Exception(f"Unknown target ", target, " at line ", cvs_reader.line_num, " in ", filename)
+                    raise Exception("Unknown target ", target, " at line ", cvs_reader.line_num, " in ", filename)
                 active = int(row[-1])
                 category += active * multiplier
                 multiplier *= 2
                 if active < 0 or active > 1:
-                    raise Exception(f"Unknown activity ", active, " at line ", cvs_reader.line_num, " in ", filename)
+                    raise Exception("Unknown activity ", active, " at line ", cvs_reader.line_num, " in ", filename)
                 data[target] = active
                 try:
                     row = next(csv_reader)

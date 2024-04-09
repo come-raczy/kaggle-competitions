@@ -1,10 +1,12 @@
 import argparse
 import csv
+
 import rdkit.Chem as Chem
 from rdkit.Chem import Descriptors
 
+
 def generate_descriptors(input_file, output_file, descriptors):
-    with open(input_file, 'r') as f:
+    with open(input_file) as f:
         reader = csv.reader(f)
         with open(output_file, 'w') as o:
             writer = csv.writer(o)

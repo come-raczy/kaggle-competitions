@@ -68,6 +68,8 @@ xgboost = "^2.0.3"
 numpy = "^1.26.4"
 pandas = "^2.2.1"
 pandas-stubs = "^2.2.1"
+catboost = "^1.2.3"
+scikit_learn = "^1.4.2"
 
 [tool.poetry.group.dev.dependencies]
 # Add a private package

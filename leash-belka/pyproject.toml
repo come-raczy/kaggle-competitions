@@ -69,6 +69,7 @@ numpy = "^1.26.4"
 pandas = "^2.2.1"
 pandas-stubs = "^2.2.1"
 catboost = "^1.2.3"
+lightgbm = "^4.3.0"
 scikit_learn = "^1.4.2"
 
 [tool.poetry.group.dev.dependencies]

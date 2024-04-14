@@ -10,14 +10,23 @@ def train() -> None:
     parser = argparse.ArgumentParser(description='Commandline tool for training for Leash BELKA kaggle competition.')
     parser.add_argument('input', type=str, nargs='+', help='full path to the csv files containing the training data.')
     parser.add_argument('-o', '--output', type=str, required=True, help='full path to the trained model (json or ubj).')
-    parser.add_argument('-b', '--booster', choices=['catboost', 'xgboost'], default='xgboost', help='booster to use for training. Default is xgboost.')
+    parser.add_argument('-b', '--booster', choices=['lightgbm', 'catboost', 'xgboost'], default='xgboost', help='booster to use for training. Default is xgboost.')
     args = parser.parse_args()
     if args.booster == 'xgboost':
         train_xgboost(args)
     elif args.booster == 'catboost':
         train_catboost(args)
+    elif args.booster == 'lightgbm':
+        train_lightgbm(args)
     else:
         raise ValueError('Invalid booster: ' + args.booster + '. Expected catboost or xgboost.')
+
+def train_lightgbm(args: argparse.Namespace) -> None:
+    import lightgbm as lgb
+    from sklearn import datasets
+    iris = datasets.load_iris()
+    digits = datasets.load_digits()
+    pass
 
 def train_catboost(args: argparse.Namespace) -> None:
     import catboost

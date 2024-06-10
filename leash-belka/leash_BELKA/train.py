@@ -19,7 +19,7 @@ def train() -> None:
     elif args.booster == 'lightgbm':
         train_lightgbm(args)
     else:
-        raise ValueError('Invalid booster: ' + args.booster + '. Expected catboost or xgboost.')
+        raise ValueError('Invalid booster: ' + args.booster + '. Expected lightgbm, catboost, or xgboost.')
 
 def train_lightgbm(args: argparse.Namespace) -> None:
     import lightgbm as lgb
